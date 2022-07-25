@@ -9,6 +9,6 @@ app.use(cors());
 
 require("./server/config/mongoose.config");
 
-require("./server/routes/pet.routes")(app);
+// require("./server/routes/pet.routes")(app);
 
 app.listen(port, () => console.log(`***** Fired up on port: ${port}`) );
