@@ -12,7 +12,7 @@ const Notepad = () => {
             {
                 show &&
                 <div className="paper-content">
-                    <textarea onChange={e => setInfo(e.target.value)}>{info}</textarea>
+                    <textarea defaultValue={info} onChange={e => setInfo(e.target.value)}></textarea>
                 </div>
             }
         </div>
