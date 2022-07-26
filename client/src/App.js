@@ -9,7 +9,6 @@ function App() {
       <h1 className='logo'>Dojoneer</h1>
       <Tasks/>
       <Notepad/>
-
     </div>
   );
 }
