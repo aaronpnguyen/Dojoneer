@@ -1,0 +1,20 @@
+.taskForm {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    flex-direction: column;
+    padding: 25px;
+    background-color: #21262d;
+    color: rgba(255, 255, 255, 0.822);
+}
+
+.form {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.mapItems {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}

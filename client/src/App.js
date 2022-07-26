@@ -1,11 +1,14 @@
-import Test from './components/Test'
-import {Routes, Route} from 'react-router-dom'
 import './App.css';
+import Notepad from './components/Notepad';
+import Tasks from './components/Tasks'
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Test</h1>
+    <div className="App container">
+      <h1 className='logo'>Dojoneer</h1>
+      <Tasks/>
+      <Notepad/>
     </div>
   );
 }
