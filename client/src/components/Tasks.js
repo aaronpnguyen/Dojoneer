@@ -48,26 +48,29 @@ const Tasks = () => {
     return (
         <div className="taskForm">
             <form onSubmit={onSubmit} className="form">
-                <div>
-                    <input type="text" onChange={change} value={tasks} placeholder="Add Task"></input>
+                <div className="taskInputContainer">
+                    <input type="text" onChange={change} value={tasks} placeholder="Add Task" className="taskInput"></input>
                     <h6>{count}/100</h6>
                 </div>
 
-                <input type="submit"></input>
+                <input type="submit" className="formSubmit button"></input>
             </form>
             {
                 list.map((item, key=item.id) => {
                     return (
                         <div key={key} className="mapItems">
-                            <input type="checkbox" checked={item.complete} onChange={e => toggleComplete(e, key)}></input>
-                            <h3 style={{textDecoration: item.complete? "line-through": "None"}}>{item.task}</h3>
-                            <button onClick={e => deleteTask(key)}>Delete!</button>
+                            <div className="theTask">
+                                <input type="checkbox" className="taskCheckbox" checked={item.complete} onChange={e => toggleComplete(e, key)}></input>
+                                <h3  className="displayTask" style={{textDecoration: item.complete? "line-through": "None"}}>{item.task}</h3>
+                            </div>
+
+                            <button className="deleteTask button" onClick={e => deleteTask(key)}>Delete</button>
                         </div>
                     )
                 })
             }
             {
-                list.length > 1? <button onClick={e => setList([])}>Delete All</button>: null
+                list.length > 1? <button className="deleteTask button delete" onClick={e => setList([])}>Delete <strong>All</strong> Tasks</button>: null
             }
         </div>
     )

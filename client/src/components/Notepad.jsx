@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 const Notepad = () => {
-    let [info, setInfo] = useState("Thank you for visiting Dojoneer! This notepad will clear when the browser is closed..")
+    let [info, setInfo] = useState("Thank you for visiting Dojoneer! This notepad is intended for brief notes, it will clear when the browser is closed..")
     const [show, setShow] = useState(true);
     
     return (
