@@ -1,6 +1,7 @@
 import './App.css';
 import Notepad from './components/Notepad';
 import Tasks from './components/Tasks'
+import Audio from './components/Audio';
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <h1 className='logo'>Dojoneer</h1>
       <Tasks/>
       <Notepad/>
+      <Audio/>
     </div>
   );
 }
