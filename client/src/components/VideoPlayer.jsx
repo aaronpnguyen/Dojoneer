@@ -1,8 +1,8 @@
 import React from 'react';
 
 function VideoPlayer(props){
-    let playbutton = require('../assets/playbutton.png');
-    let pausebutton = require('../assets/pausebutton.png');
+    let playbutton = require('../assets/whiteplay.png');
+    let pausebutton = require('../assets/whitepause.png');
 
     return(
         <>
