@@ -66,6 +66,9 @@ const Tasks = () => {
                     )
                 })
             }
+            {
+                list.length > 1? <button onClick={e => setList([])}>Delete All</button>: null
+            }
         </div>
     )
 }
