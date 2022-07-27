@@ -2,9 +2,10 @@ import React, {useEffect, useState, useRef} from "react";
 
 function Timer() {
     let [inputTime, setInputTime] = useState('');
-    let [seconds, setSeconds] = useState(0);
+    let [seconds, setSeconds] = useState();
+    let [toggle, setToggle] = useState(false)
 
-    const renders = useRef(0);
+    const renders = useRef(inputTime);
     const timerId = useRef();
 
     const handleChange = (e) => {
@@ -15,28 +16,31 @@ function Timer() {
     const startTimer = () => {
         timerId.current = setInterval(() => {
             renders.current++;
-            setSeconds(prev => prev + 1);
+            setSeconds(prev => prev - 1);
         }, 1000)
+        setToggle(true)
     }
 
     const stopTimer = () => {
         clearInterval(timerId.current);
-        timerId.current = 0;
+        timerId.current = inputTime;
+        setToggle(false)
     }
 
     const resetTimer = () => {
         stopTimer();
         if (seconds) {
-            renders.current++;
-            setSeconds(0);
+            renders.current--;
+            setSeconds(inputTime);
         }
+        setToggle(false)
     }
 
     return(
         <>
             <input type="int" value={inputTime} placeholder="Set Timer" onChange={handleChange} />
             <section>
-                <button onClick={startTimer}>Start</button>
+                <button disabled={toggle} onClick={startTimer}>Start</button>
                 <button onClick={stopTimer}>Stop</button>
                 <button onClick={resetTimer}>Reset</button>
             </section>
