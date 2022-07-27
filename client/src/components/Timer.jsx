@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import TimerStyle from './styles/TimerStyle.css'
 
 function Timer() {
     const calculateTimeLeft = () => {
@@ -43,7 +44,7 @@ function Timer() {
     });
 
     return (
-        <div className="nieuwjaar">
+        <div className="timer">
             <h1>Own Date</h1>
             <input type="date" ></input>
             <br></br>
