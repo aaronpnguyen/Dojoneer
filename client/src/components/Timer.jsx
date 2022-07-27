@@ -2,7 +2,7 @@ import React, {useEffect, useState, useRef} from "react";
 
 function Timer() {
     let [inputTime, setInputTime] = useState('');
-    let [seconds, setSeconds] = useState('');
+    let [seconds, setSeconds] = useState(0);
 
     const renders = useRef(0);
     const timerId = useRef();
