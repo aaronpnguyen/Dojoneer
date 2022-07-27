@@ -11,8 +11,8 @@
 .taskForm {
     display: flex;
     align-items: center;
-    min-width: 450px;
-    max-width: 20%;
+    min-width: 300px;
+    width: 30%;
     flex-direction: column;
     padding: 25px;
     background-color: var(--charc-two);
@@ -27,6 +27,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     flex-wrap: nowrap;
+    justify-content: flex-start;
 }
 
 .button:hover {
@@ -64,11 +65,13 @@
 .mapItems {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
     align-items: center;
     margin: 1.5% 0;
     padding: 1%;
     color:  black;
+    box-sizing: border-box;
 }
 
 .taskInputContainer {
@@ -78,10 +81,11 @@
 .theTask {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 87%;
     background-color: rgba(255,255,255,0.7);
     border-radius: 5px;
     padding: 1.5%;
+    box-sizing: border-box;
 }
 
 .taskInput {
@@ -95,15 +99,20 @@
 }
 
 .taskCheckbox {
-    margin-right: 3%;
+    margin-right: 2%;
 }
 
 .displayTask {
-    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
     font-size: 14px;
     font-family: 'Monserrat', 'Comfortaa', sans-serif;
     text-align: left;
     font-weight: 500;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    padding-right: 5%;
+    text-align: left;
 }
 
 .deleteTask {
