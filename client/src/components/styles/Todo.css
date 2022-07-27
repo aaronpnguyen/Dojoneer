@@ -27,6 +27,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     flex-wrap: nowrap;
+    justify-content: flex-start;
 }
 
 .button:hover {
@@ -64,11 +65,12 @@
 .mapItems {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    max-width: 100%;
     align-items: center;
     margin: 1.5% 0;
     padding: 1%;
     color:  black;
+    box-sizing: border-box;
 }
 
 .taskInputContainer {
@@ -78,10 +80,11 @@
 .theTask {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    max-width: 87%;
     background-color: rgba(255,255,255,0.7);
     border-radius: 5px;
     padding: 1.5%;
+    box-sizing: border-box;
 }
 
 .taskInput {
@@ -99,11 +102,12 @@
 }
 
 .displayTask {
-    width: 100%;
+    max-width: 100%;
     font-size: 14px;
     font-family: 'Monserrat', 'Comfortaa', sans-serif;
     text-align: left;
     font-weight: 500;
+    box-sizing: border-box;
 }
 
 .deleteTask {
