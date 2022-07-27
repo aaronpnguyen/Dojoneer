@@ -2,6 +2,7 @@ import './App.css';
 import Notepad from './components/Notepad';
 import Tasks from './components/Tasks'
 import Audio from './components/Audio';
+import Timer from './components/Timer';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Tasks/>
       <Notepad/>
       <Audio/>
+      <Timer/>
     </div>
   );
 }
