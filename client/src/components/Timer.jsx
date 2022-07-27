@@ -1,56 +1,50 @@
-import React, {useEffect, useState} from "react";
-import TimerStyle from './styles/TimerStyle.css'
+import React, {useEffect, useState, useRef} from "react";
 
 function Timer() {
-    const calculateTimeLeft = () => {
-        let year = new Date().getFullYear();
-    
-        const difference = +new Date(`01/01/${year+1}`) - +new Date();
-        
-        let timeLeft = {};
-    
-        if (difference > 0) {
-            timeLeft = {
-            hours: Math.floor((difference / (1000 * 60 * 60)) % 24), 
-            minutes: Math.floor((difference / 1000 / 60) % 60),
-            seconds: Math.floor((difference / 1000) % 60)
-        };
-    }
-    
-        return timeLeft
-    };
-        
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-    const [year] = useState(new Date().getFullYear());
-    
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setTimeLeft(calculateTimeLeft());
-            }, 1000);
-            return () => clearTimeout(timer);
-    });
-        const timerComponents = [];
-    
-    Object.keys(timeLeft).forEach((interval) => {
-        if (!timeLeft[interval]) {
-        return;
-    }
-    
-        timerComponents.push(
-            <span>
-                {timeLeft[interval]} {interval}{" "}
-            </span>
-        );
-    });
+    let [inputTime, setInputTime] = useState('');
+    let [seconds, setSeconds] = useState(0);
 
-    return (
-        <div className="timer">
-            <h1>Own Date</h1>
-            <input type="date" ></input>
-            <br></br>
-            {timerComponents.length ? timerComponents : <span>Time's Up!</span>}
-        </div>
-    );
+    const renders = useRef(0);
+    const timerId = useRef();
+
+    const handleChange = (e) => {
+        setInputTime(e.target.value);
+        renders.current++;
+    }
+
+    const startTimer = () => {
+        timerId.current = setInterval(() => {
+            renders.current++;
+            setSeconds(prev => prev + 1);
+        }, 1000)
+    }
+
+    const stopTimer = () => {
+        clearInterval(timerId.current);
+        timerId.current = 0;
+    }
+
+    const resetTimer = () => {
+        stopTimer();
+        if (seconds) {
+            renders.current++;
+            setSeconds(0);
+        }
+    }
+
+    return(
+        <>
+            <input type="int" value={inputTime} placeholder="Set Timer" onChange={handleChange} />
+            <section>
+                <button onClick={startTimer}>Start</button>
+                <button onClick={stopTimer}>Stop</button>
+                <button onClick={resetTimer}>Reset</button>
+            </section>
+            <p style={{color: "white"}}>Seconds: {seconds}</p>
+            <p style={{color: "white"}}>{inputTime}</p>
+        </>
+    )
 }
+
 
 export default Timer;
