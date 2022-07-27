@@ -62,6 +62,7 @@ function Timer() {
 
     return(
         <>
+
             <div className="timer">
                 <div className="input-container">
                     <button className="math-operator">&#x2b;</button>
@@ -84,6 +85,20 @@ function Timer() {
                     <p style={{color: "white"}}>Seconds: {seconds}</p>
                 }*/}
             </div>
+
+            <input type="int" value={inputTime} placeholder="Set Timer" onChange={handleChange} />
+            <section>
+                {!toggleStart?
+                    <button onClick={startTimer}>Start</button>:
+                    <button disabled={!toggleResume} onClick={resumeTimer}>Resume</button>
+                }
+                <button onClick={stopTimer}>Stop</button>
+                <button onClick={resetTimer}>Reset</button>
+            </section>
+            {
+                <p style={{color: "white"}}>Seconds: {seconds}</p>
+            }
+
         </>
     )
 }

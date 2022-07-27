@@ -48,7 +48,7 @@ body {
   font-size: 20px;
   position: absolute;
   top: 94.5%;
-  left: 25%;
+  left: 23%;
   background-color: var(--charc-two);
   color: var(--off-white);
   border: none;
@@ -68,7 +68,7 @@ body {
 /* NOTEPAD PAPER DISPLAY */
 .paper-content {
   position: absolute;
-  top: 49%;
+  top: 46.25%;
   left: 58%;
   width:27.5%;
   width: 26%;
