@@ -10,8 +10,6 @@ function App() {
     <div className="App container">
       <h1 className='logo'>DOJONEER</h1>
       <Tasks/>
-       <Tasks/> 
-      {/* <Tasks/> */}
       <Notepad/>
       <Audio/>
       <Timer/>
