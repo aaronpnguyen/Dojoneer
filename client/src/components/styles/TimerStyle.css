@@ -1,0 +1,93 @@
+:root {
+  --paper-yelow: rgb(252, 252, 212);
+  --charc: rgb(33, 38, 45);
+  --charc-two: rgba(33, 38, 45, 0.8);
+  --light-green: #adebad;
+  --green: #32cd32;
+  --light-red: #ffb3b3;
+  --red: #ff4d4d;
+}
+
+.timer {
+	background-color: var(--charc-two);
+	display: inline-flex;
+	flex-direction: column;
+	position: absolute;
+	top: 14%;
+	left: 58%;
+	color: white;
+	padding: 1.5%;
+	min-width: 200px;
+	border-radius: 5px;
+}
+
+.btn-container {
+	min-width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn-container > button  {
+	padding: 2% 4%;
+	border: none;
+	box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.3);
+	border-radius: 2px;
+}
+
+.btn-container > button:hover {
+	cursor: pointer;
+}
+
+.btn-container > button:active {
+	position: relative;
+	top: 2px;
+	box-shadow: none;
+}
+
+.input-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.time-input  {
+	padding: 2%;
+	margin-bottom: 10%;
+	border-radius: 3px;
+	border: none;
+	width: 20%;
+}
+
+.the-timer {
+	margin-bottom: 10%;
+}
+
+.math-operator {
+	background-color: transparent;
+	border: 1px solid transparent;
+	color: white;
+	border-radius: 180px;
+	padding: 0 5px;
+	height: 20px;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.math-operator:hover {
+	border: 1px solid;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
