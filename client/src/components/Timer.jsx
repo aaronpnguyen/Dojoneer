@@ -65,9 +65,9 @@ function Timer() {
 
             <div className="timer">
                 <div className="input-container">
-                    <button className="math-operator">&#x2b;</button>
-                    <input type="number" value={inputTime} placeholder="Set Timer" onChange={handleChange} className="time-input"/>
                     <button className="math-operator">&#x2212;</button>
+                    <input type="number" value={inputTime} placeholder="Set Timer" onChange={handleChange} className="time-input"/>
+                    <button className="math-operator">&#x2b;</button>
                 </div>
                 {
                     <p style={{color: "white"}} className="the-timer">Seconds: {seconds}</p>
