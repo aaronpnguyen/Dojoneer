@@ -58,6 +58,7 @@ function Timer() {
         }
         setToggleStart(false)
         setToggleResume(false)
+        setInputTime(0)
     }
 
     return(
