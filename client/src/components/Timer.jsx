@@ -41,7 +41,7 @@ function Timer() {
             renders.current++;
             setSeconds(seconds => seconds - 1);
         }, 1000)
-        setToggleResume(true)
+        setToggleResume(false)
     }
 
     const stopTimer = () => {
