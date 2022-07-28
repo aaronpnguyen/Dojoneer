@@ -22,6 +22,8 @@
 	position: absolute;
 	top:  78%;
 	left: 15%;
+	user-select: none;
+  cursor: pointer;
 }
 
 .musicHandler {
@@ -32,8 +34,11 @@
 }
 
 .vrange {
-	background-color: transparent;
+	background-color: yellow;
 	border: solid 4px black;
+	box-sizing: none;
+	margin: 0;
+	padding: 0;
 }
 
 .lofi {

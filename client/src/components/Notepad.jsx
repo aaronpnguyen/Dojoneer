@@ -6,9 +6,9 @@ const Notepad = () => {
     
     return (
         <div className="notepad">
-            <div>
+{/*            <div>
                 <button className='open-btn notes' onClick={() => setShow(!show)}> Notes </button>
-            </div>
+            </div>*/}
             {
                 show &&
                 <div className="paper-content">

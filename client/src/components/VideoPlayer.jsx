@@ -25,6 +25,7 @@ function VideoPlayer(props){
                                 </div>
                                 <input  
                                     className='volume-range vrange'
+                                    id="musicSlider"
                                     style={{width: "100%"}}
                                     type="range"
                                     min={0}
@@ -40,9 +41,9 @@ function VideoPlayer(props){
 
 
 
-            <div>
+            {/*<div>
                 <button className='open-btn-music' onClick={() => setShow(!show)}> Music </button>
-            </div>
+            </div>*/}
 
 
         </>
