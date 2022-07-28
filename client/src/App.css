@@ -70,11 +70,12 @@ body {
 /* NOTEPAD PAPER DISPLAY */
 .paper-content {
   position: absolute;
-  top: 46.25%;
+  top: 270px;
   left: 58%;
   width:27.5%;
   width: 26%;
   min-width: 100px;
+  user-select: none;
 }
 
 
@@ -91,7 +92,6 @@ textarea {
   overflow-y: auto;
   overflow-x: hidden;
   font-family: 'Montserrat', 'Comfortaa', sans-serif;
-  /* display: none; */
   resize: none;
   box-sizing: border-box;
  }
