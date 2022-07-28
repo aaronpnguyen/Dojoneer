@@ -7,6 +7,8 @@ function Timer() {
     let [toggleStart, setToggleStart] = useState(false);
     let [toggleResume, setToggleResume] = useState(false)
 
+    let alarm = require('../assets/alarm.mp3');
+
     const renders = useRef(inputTime);
     const timerId = useRef();
 
@@ -14,10 +16,12 @@ function Timer() {
         if (seconds === 0) {
             resetTimer()
         }
-        // fuck u stupid error (ง︡'-'︠)ง
-        // eslint-disable-next-line
     }, [seconds])
 
+    if (seconds === 0 && toggleStart === true){
+        new Audio(alarm).play();
+    }
+    
     const handleChange = (e) => {
         setInputTime(e.target.value);
         renders.current++;
@@ -61,6 +65,10 @@ function Timer() {
         setInputTime(0)
     }
 
+    // const alarmSound = () => {
+    //         setSound(alarm);
+    // }
+
     return(
         <>
 
@@ -71,7 +79,7 @@ function Timer() {
                     <button className="math-operator" onClick={() => setInputTime(parseInt(inputTime)+1)}>&#x2b;</button>
                 </div>
                 {
-                    <p style={{color: "white"}} className="the-timer">Seconds: {seconds}</p>
+                    <p style={{color: "white"}} className="the-timer" >Seconds: {seconds}</p>
                 }
 
                 <section className="btn-container">
