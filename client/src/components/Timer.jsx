@@ -2,7 +2,7 @@ import React, {useEffect, useState, useRef} from "react";
 import TimerStyle from './styles/TimerStyle.css'
 
 function Timer() {
-    let [inputTime, setInputTime] = useState('');
+    let [inputTime, setInputTime] = useState(0);
     let [seconds, setSeconds] = useState(inputTime);
     let [toggleStart, setToggleStart] = useState(false);
     let [toggleResume, setToggleResume] = useState(false)
@@ -65,9 +65,9 @@ function Timer() {
 
             <div className="timer">
                 <div className="input-container">
-                    <button className="math-operator">&#x2212;</button>
-                    <input type="number" value={inputTime} placeholder="Set Timer" onChange={handleChange} className="time-input"/>
-                    <button className="math-operator">&#x2b;</button>
+                    <button className="math-operator" disabled={inputTime <= 0? true : false} onClick={() => setInputTime(parseInt(inputTime)-1)}>&#x2212;</button>
+                    <input type="number" value={inputTime} min="0" placeholder="0" onChange={handleChange} className="time-input"/>
+                    <button className="math-operator" onClick={() => setInputTime(parseInt(inputTime)+1)}>&#x2b;</button>
                 </div>
                 {
                     <p style={{color: "white"}} className="the-timer">Seconds: {seconds}</p>
