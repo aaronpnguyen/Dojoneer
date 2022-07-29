@@ -19,7 +19,7 @@ function VideoPlayer(props){
         let sliderVar = document.getElementById("musicSlider");
         console.log(sliderVar.value);
 
-
+        
     }
 
     return(
