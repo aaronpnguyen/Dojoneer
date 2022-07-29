@@ -1,9 +1,9 @@
-import { set } from "mongoose";
 import React, {useEffect, useState} from "react";
+// eslint-disable-next-line
 import TimerStyle from './styles/TimerStyle.css'
 
 function Timer() {
-    let [input, setInput] = useState(1)
+    let [input, setInput] = useState(0)
     let [minutes, setMinutes] = useState(input)
     let [seconds, setSeconds] = useState(0)
     let [count, setCount] = useState(0)
@@ -21,16 +21,19 @@ function Timer() {
     useEffect(() => {
         addTime()
         subtractTime()
-    })
+        setInput(minutes)
+        if (isNaN(minutes)) {
+            setMinutes(0)
+            setInput(0)
+        }
+    }, [minutes])
 
     const addTime = () => {
-        setMinutes(input => input + 1)
-        setInput(minutes)
+        setMinutes(input => parseInt(input) + 1)
     }
 
     const subtractTime = () => {
-        setMinutes(input => input - 1)
-        setInput(minutes)
+        setMinutes(input => parseInt(input) - 1)
     }
 
     const changeHandler = e => {
