@@ -14,16 +14,22 @@
 	align-items: center;
 	flex-direction: column;
 	border-radius: 5px;
-	box-sizing: border-box;
-	padding: 0.5% 1.25%;
+/*	box-sizing: border-box;*/
+	padding: 0.5% 2%;
 	min-width: 200px;
-	width: 15%;
+	/*width: 15%;*/
 	justify-content: space-between;
 	position: absolute;
 	top:  495px;
 	left: 15%;
 	user-select: none;
-  cursor: pointer;
+  	cursor: grab;
+}
+
+.lofi {
+	font-size: 20px;
+	padding: 0.5% 0 3% 0;
+	color: rgba(250, 250, 250, 0.9);
 }
 
 .musicHandler {
@@ -31,20 +37,48 @@
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
+	padding: 1% 10% 0 0;
+	box-sizing: border-box;
 }
 
-.vrange {
+/*.vrange {
 	background-color: yellow;
 	border: solid 4px black;
 	box-sizing: none;
+	margin: 0 0 0 5%;
+	padding: 0 2%;
+}*/
+
+#musicSlider {
 	margin: 0;
 	padding: 0;
+	-webkit-appearance:  none;
+	appearance: none;
+	outline: none;
+	background-color: rgba(225, 225, 225, 0.3);
+	transition: opacity .3s;
+	height: 12px;
+	border-radius: 10px;
 }
 
-.lofi {
-	font-size: 20px;
-	padding: 0.5% 0 3% 0;
-	color: rgba(250, 250, 250, 0.9);
+#musicSlider:hover {
+	opacity: 1;
+	cursor: cell;
+}
+
+.vrange::-webkit-slider-thumb {
+	height: 15px;
+	width: 15px;
+	border: 1px solid var(--charc);
+	/* background: url('../../assets/ninja.png'); */
+	background: rgb(255, 255, 255);
+	appearance: none;
+	border-radius: 50%;
+}
+
+/* MUSIC IMG */
+.music-img:hover {
+	cursor: pointer;
 }
 
 /* BUTTONS */
@@ -69,4 +103,30 @@
 .open-btn-music:active {
   box-shadow: none;
   line-height: 1.35;
+}
+
+
+/* INCREASE DECREASE VOLUME BUTTONS */
+.volume-buttons {
+	display: flex;
+	width: 50%;
+	margin-left: 14%;
+	justify-content: space-between;
+}
+
+.math-operator {
+	background-color: transparent;
+	border: 1px solid transparent;
+	color: white;
+	border-radius: 180px;
+	padding: 0 5px;
+	height: 20px;
+	background-color: rgba(0, 0, 0, 0.4);
+	margin-top: 5%;
+	font-size: 18px;
+}
+
+.math-operator:hover {
+	border: 1px solid;
+	cursor: pointer;
 }

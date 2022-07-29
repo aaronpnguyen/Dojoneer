@@ -22,7 +22,7 @@
 	left: 58%;
 
 	user-select: none;
-	cursor: pointer;
+	cursor: grab;
 }
 
 .btn-container {

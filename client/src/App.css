@@ -76,6 +76,8 @@ body {
   width: 26%;
   min-width: 100px;
   user-select: none;
+  border-top: 15px solid var(--charc);
+  cursor: grab;
 }
 
 
@@ -94,5 +96,6 @@ textarea {
   font-family: 'Montserrat', 'Comfortaa', sans-serif;
   resize: none;
   box-sizing: border-box;
+  cursor: text;
  }
 

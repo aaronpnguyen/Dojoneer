@@ -30,7 +30,7 @@
     top:  40px;
     left: 15%;
     user-select: none;
-    cursor: pointer;
+    cursor: grab;
 }
 
 .button:hover {
