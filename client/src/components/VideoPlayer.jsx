@@ -6,6 +6,15 @@ function VideoPlayer(props){
     let pausebutton = require('../assets/whitepause.png');
     const [show, setShow] = useState(true);
 
+    // const increase = () => {
+    //     console.log("type of", typeof props.volume)
+    //     let volume = parseInt(props.volume) / 100
+    //     console.log("volume", volume)
+    //     let propVar = props.volume
+    //     props.setState({this.volume: volume})
+    //     console.log(typeof (parseInt(props.volume) / 100))
+    // }
+
     return(
         <>
             {
