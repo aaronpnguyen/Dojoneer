@@ -12,7 +12,7 @@ function VideoPlayer(props){
     //     console.log("volume", volume)
     //     let propVar = props.volume
     //     props.setState({this.volume: volume})
-    //     console.log(typeof (parseInt(props.volume) / 100))
+    //     console.log(typeof (parseInt(props.handleVolumeChange) / 100))
     // }
 
     return(
@@ -45,8 +45,8 @@ function VideoPlayer(props){
                             </div>
                         </div>
                         <div className="volume-buttons">
-                            <button className="math-operator"> &#x2212; </button>
-                            <button className="math-operator"> &#x2b; </button>
+                            <button className="math-operator" > &#x2212; </button>
+                            <button className="math-operator" onClick={(e) => props.handleVolumeChange(e)}> &#x2b; </button>
                         </div>
                 </div>
             }
