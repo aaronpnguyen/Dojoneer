@@ -6,14 +6,21 @@ function VideoPlayer(props){
     let pausebutton = require('../assets/whitepause.png');
     const [show, setShow] = useState(true);
 
-    // const increase = () => {
-    //     console.log("type of", typeof props.volume)
-    //     let volume = parseInt(props.volume) / 100
-    //     console.log("volume", volume)
-    //     let propVar = props.volume
-    //     props.setState({this.volume: volume})
-    //     console.log(typeof (parseInt(props.volume) / 100))
-    // }
+    const increase = () => {
+        console.log("type of", typeof props.volume)
+        let volume = parseInt(props.volume) / 100 ;
+        console.log("volume", volume)
+        
+        console.log(props.volume);
+        // props.setState({volume: volume})
+        // console.log(typeof (parseInt(props.volume) / 100))
+        
+        // let sliderVar = document.getElementById("musicSlider");
+        let sliderVar = document.getElementById("musicSlider");
+        console.log(sliderVar.value);
+
+
+    }
 
     return(
         <>
@@ -46,7 +53,7 @@ function VideoPlayer(props){
                         </div>
                         <div className="volume-buttons">
                             <button className="math-operator"> &#x2212; </button>
-                            <button className="math-operator"> &#x2b; </button>
+                            <button className="math-operator" onClick={increase}> &#x2b; </button>
                         </div>
                 </div>
             }

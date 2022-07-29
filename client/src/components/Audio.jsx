@@ -21,6 +21,7 @@ class Audio extends Component {
         console.log(e.target.value / 100)
         this.setState({volume: e.target.value / 100, volumeBar: e.target.value})
     }
+
     handleAdd = (e) => {
         console.log(e.target.value / 100)
         this.setState({volume: e.target.value / 100, volumeBar: e.target.value})

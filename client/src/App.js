@@ -28,11 +28,11 @@ function App() {
         </div>
       </Draggable>
 
-      {/* <Draggable> */}
+      <Draggable>
         <div>
           <Audio/>
         </div>
-      {/* </Draggable> */}
+      </Draggable>
 
     </div>
   );

@@ -70,9 +70,8 @@ body {
 /* NOTEPAD PAPER DISPLAY */
 .paper-content {
   position: absolute;
-  top: 265px;
+  top: 275px;
   left: 58%;
-  width:27.5%;
   width: 26%;
   min-width: 300px;
   user-select: none;
