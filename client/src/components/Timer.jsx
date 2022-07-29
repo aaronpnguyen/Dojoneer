@@ -18,6 +18,10 @@ function Timer() {
         }
     })
 
+    // if (seconds === 0 && toggleStart === true){
+    //     new Audio(alarm).play();
+    // }
+
     const changeHandler = e => {
         setInput(e.target.value)
         setMinutes(e.target.value)
@@ -69,7 +73,7 @@ function Timer() {
 
     const resetTimer = () => {
         stopTimer()
-        setMinutes(0)
+        setMinutes(1)
         setSeconds(0)
         setToggleResume(true)
         setToggleStart(false)
