@@ -99,3 +99,8 @@ textarea {
   cursor: text;
  }
 
+ .bound-drag {
+  max-width: 100%;
+  max-height: 100%;
+ }
+

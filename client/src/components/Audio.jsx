@@ -40,6 +40,8 @@ class Audio extends Component {
         this.setState({isPlay: false})
     }
 
+
+
     render() {
         const {muted, volume, currentSeek, isPlay, totalDurationOfVideo, volumeBar} = this.state
         return (
