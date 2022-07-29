@@ -88,7 +88,7 @@ function Timer() {
             </div>
             {toggleStart?
                 <p style={{color: "white"}} className="the-timer">{minutes}:{seconds >= 10?seconds: <span>0{seconds}</span>}</p>:
-                <h3 style={{color: "red"}}>You must put an input greater than 0!</h3>
+                <p style={{color: "red"}} className="the-timer">You must put an input greater than 0!</p>
             }
             <section className="btn-container">
                 {!toggleStart?

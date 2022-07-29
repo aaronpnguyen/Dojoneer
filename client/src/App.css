@@ -70,11 +70,11 @@ body {
 /* NOTEPAD PAPER DISPLAY */
 .paper-content {
   position: absolute;
-  top: 252px;
+  top: 265px;
   left: 58%;
   width:27.5%;
   width: 26%;
-  min-width: 100px;
+  min-width: 300px;
   user-select: none;
   border-top: 15px solid var(--charc);
   cursor: grab;
