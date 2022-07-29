@@ -76,6 +76,10 @@
 	border-radius: 50%;
 }
 
+.vrange::-webkit-slider-thumb:hover {
+	cursor: not-allowed;
+}
+
 /* MUSIC IMG */
 .music-img:hover {
 	cursor: pointer;
