@@ -61,9 +61,9 @@ function VideoPlayer(props){
 
 
 
-            {/*<div>
+            <div>
                 <button className='open-btn-music' onClick={() => setShow(!show)}> Music </button>
-            </div>*/}
+            </div>
 
 
         </>
