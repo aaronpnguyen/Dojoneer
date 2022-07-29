@@ -18,9 +18,20 @@ function Timer() {
         }
     })
 
-    // if (seconds === 0 && toggleStart === true){
-    //     new Audio(alarm).play();
-    // }
+    useEffect(() => {
+        addTime()
+        subtractTime()
+    })
+
+    const addTime = () => {
+        setMinutes(input => input + 1)
+        setInput(minutes)
+    }
+
+    const subtractTime = () => {
+        setMinutes(input => input - 1)
+        setInput(minutes)
+    }
 
     const changeHandler = e => {
         setInput(e.target.value)
@@ -45,7 +56,7 @@ function Timer() {
         setToggleStart(true)
     }
 
-    const resumeTimer = () => {
+    const resumeTimer = (e) => {
         const countdown = setInterval(() => {
             seconds--
             if (seconds === -1) {
@@ -82,17 +93,17 @@ function Timer() {
     return(
         <div className="timer">
             <div className="input-container">
-                <button className="math-operator" disabled={input <= 0? true : false} onClick={() => setInput(parseInt(input) - 1)}>&#x2212;</button>
-                <input type="number" min="0" value={input} placeholder="0" onChange={e => changeHandler(e)} className="time-input"/>
-                <button className="math-operator" onClick={() => setInput(parseInt(input) + 1)}>&#x2b;</button>
+                <button className="math-operator" disabled={input <= 0? true : false} onClick={subtractTime}>&#x2212;</button>
+                {!toggleStart?
+                    <input type="number" min="1" value={input} placeholder="0" onChange={e => changeHandler(e)} className="time-input"/>:
+                    <input disabled type="number" className="time-input"/>
+                }
+                <button className="math-operator" onClick={addTime}>&#x2b;</button>
             </div>
-            {toggleStart?
-                <p style={{color: "white"}} className="the-timer">{minutes}:{seconds >= 10?seconds: <span>0{seconds}</span>}</p>:
-                <p style={{color: "red"}} className="the-timer">You must put an input greater than 0!</p>
-            }
+            <p style={{color: "white"}} className="the-timer">{minutes}:{seconds >= 10?seconds:<span>0{seconds}</span>}</p>
             <section className="btn-container">
                 {!toggleStart?
-                    <button className="timer-button timer-button-start" disabled={input > 0? false: true}onClick={startTimer}>Start</button>:
+                    <button className="timer-button timer-button-start" disabled={input > 0? false: true}onClick={e => startTimer(e)}>Start</button>:
                     <button className="timer-button timer-button-start" disabled={toggleResume} onClick={resumeTimer}>Resume</button>
                 }
                 <button className="timer-button timer-button-stop" disabled={!toggleStart}onClick={stopTimer}>Stop</button>
