@@ -51,10 +51,10 @@ function VideoPlayer(props){
                                 />
                             </div>
                         </div>
-                        <div className="volume-buttons">
+                        {/* <div className="volume-buttons">
                             <button className="math-operator"> &#x2212; </button>
                             <button className="math-operator" onClick={increase}> &#x2b; </button>
-                        </div>
+                        </div> */}
                 </div>
             }
 
