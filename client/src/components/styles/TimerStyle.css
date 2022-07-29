@@ -34,13 +34,25 @@
 .btn-container > button  {
 	padding: 2% 4%;
 	border: none;
-	box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.3);
+	/* box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.3); */
 	border-radius: 2px;
+	background-color: rgba(255, 255, 255);
 }
 
 .btn-container > button:hover {
 	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.5);
 }
+
+/* .btn-container > .start-time:hover {
+	cursor: pointer;
+	background-color: var(--light-green);
+}
+
+.btn-container > .stop-time:hover {
+	cursor: pointer;
+	background-color: var(--light-green);
+} */
 
 .btn-container > button:active {
 	position: relative;
@@ -79,6 +91,22 @@
 .math-operator:hover {
 	border: 1px solid;
 	cursor: pointer;
+}
+
+.timer-button {
+	box-shadow: 0 3px 0 0 rgba(255,255,255, 0.4);
+}
+
+.timer-button:hover {
+	/* position: relative;
+	top: 3px; */
+	box-shadow: 0 3px 0 0 rgba(255,255,255, 0.3);
+}
+
+.timer-button-start:active {
+	position: relative !important;
+	top: 3px !important;
+	box-shadow: 0 0 0 0 rgba(255,255,255, 0);
 }
 
 

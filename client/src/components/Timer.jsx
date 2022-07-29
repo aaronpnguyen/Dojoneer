@@ -84,11 +84,11 @@ function Timer() {
 
                 <section className="btn-container">
                     {!toggleStart?
-                        <button onClick={startTimer}>Start</button>:
-                        <button disabled={!toggleResume} onClick={resumeTimer}>Resume</button>
+                        <button className="timer-button timer-button-start" onClick={startTimer}>Start</button>:
+                        <button className="timer-button timer-button-start" disabled={!toggleResume} onClick={resumeTimer}>Resume</button>
                     }
-                    <button onClick={stopTimer}>Stop</button>
-                    <button onClick={resetTimer}>Reset</button>
+                    <button className="timer-button timer-button-stop" onClick={stopTimer}>Stop</button>
+                    <button className="timer-button timer-button-reset" onClick={resetTimer}>Reset</button>
                 </section>
                 {/*{
                     <p style={{color: "white"}}>Seconds: {seconds}</p>
