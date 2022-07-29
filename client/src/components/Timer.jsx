@@ -1,103 +1,101 @@
-import React, {useEffect, useState, useRef} from "react";
+import { set } from "mongoose";
+import React, {useEffect, useState} from "react";
 import TimerStyle from './styles/TimerStyle.css'
 
 function Timer() {
-    let [inputTime, setInputTime] = useState(0);
-    let [seconds, setSeconds] = useState(inputTime);
-    let [toggleStart, setToggleStart] = useState(false);
-    let [toggleResume, setToggleResume] = useState(false)
-
+    let [input, setInput] = useState(1)
+    let [minutes, setMinutes] = useState(input)
+    let [seconds, setSeconds] = useState(0)
+    let [count, setCount] = useState(0)
+    let [toggleStart, setToggleStart] = useState(false)
+    let [toggleResume, setToggleResume] = useState(true)
     let alarm = require('../assets/alarm.mp3');
 
-    const renders = useRef(inputTime);
-    const timerId = useRef();
-
     useEffect(() => {
-        if (seconds === 0) {
+        if (minutes === 0 && seconds === 0 && toggleStart) {
+            new Audio(alarm).play();
             resetTimer()
         }
-    }, [seconds])
+    })
 
-    if (seconds === 0 && toggleStart === true){
-        new Audio(alarm).play();
-    }
-    
-    const handleChange = (e) => {
-        setInputTime(e.target.value);
-        renders.current++;
+    const changeHandler = e => {
+        setInput(e.target.value)
+        setMinutes(e.target.value)
     }
 
     const startTimer = () => {
-        if (inputTime) {
-            setSeconds(inputTime)
-            timerId.current = setInterval(() => {
-                renders.current++;
-                setSeconds(inputTime => inputTime - 1);
-            }, 1000)
-            setToggleStart(true)
-            setInputTime("")
-        }
+        setInput(0)
+        const countdown = setInterval(() => {
+            seconds--
+            if (seconds === -1) {
+                seconds = 0
+            }
+            setMinutes(minutes)
+            setSeconds(seconds)
+            if (seconds === 0) {
+                minutes--
+                seconds = 60
+            }
+        }, 1000)
+        setCount(countdown)
+        setToggleStart(true)
     }
 
     const resumeTimer = () => {
-        setSeconds(seconds)
-        timerId.current = setInterval(() => {
-            renders.current++;
-            setSeconds(seconds => seconds - 1);
+        const countdown = setInterval(() => {
+            seconds--
+            if (seconds === -1) {
+                seconds = 0
+            }
+            setMinutes(minutes)
+            setSeconds(seconds)
+            if (seconds === 0) {
+                minutes--
+                seconds = 60
+            }
         }, 1000)
-        setToggleResume(false)
-    }
-
-    const stopTimer = () => {
-        clearInterval(timerId.current);
-        timerId.current = inputTime;
+        setCount(countdown)
         setToggleResume(true)
     }
 
-    const resetTimer = () => {
-        stopTimer();
-        if (seconds) {
-            renders.current--;
-            setSeconds(inputTime);
-        }
-        setToggleStart(false)
+    const stopTimer = () => {
         setToggleResume(false)
-        setInputTime(0)
+        if (count) {
+            clearInterval(count)
+            setCount(false)
+            return
+        }
     }
 
-    // const alarmSound = () => {
-    //         setSound(alarm);
-    // }
+    const resetTimer = () => {
+        stopTimer()
+        setMinutes(0)
+        setSeconds(0)
+        setToggleResume(true)
+        setToggleStart(false)
+    }
 
     return(
-        <>
-
-            <div className="timer">
-                <div className="input-container">
-                    <button className="math-operator" disabled={inputTime <= 0? true : false} onClick={() => setInputTime(parseInt(inputTime)-1)}>&#x2212;</button>
-                    <input type="number" value={inputTime} min="0" placeholder="0" onChange={handleChange} className="time-input"/>
-                    <button className="math-operator" onClick={() => setInputTime(parseInt(inputTime)+1)}>&#x2b;</button>
-                </div>
-                {
-                    <p style={{color: "white"}} className="the-timer" >Seconds: {seconds}</p>
-                }
-
-                <section className="btn-container">
-                    {!toggleStart?
-                        <button className="timer-button timer-button-start" onClick={startTimer}>Start</button>:
-                        <button className="timer-button timer-button-start" disabled={!toggleResume} onClick={resumeTimer}>Resume</button>
-                    }
-                    <button className="timer-button timer-button-stop" onClick={stopTimer}>Stop</button>
-                    <button className="timer-button timer-button-reset" onClick={resetTimer}>Reset</button>
-                </section>
-                {/*{
-                    <p style={{color: "white"}}>Seconds: {seconds}</p>
-                }*/}
+        <div className="timer">
+            <div className="input-container">
+                <button className="math-operator" disabled={input <= 0? true : false} onClick={() => setInput(parseInt(input) - 1)}>&#x2212;</button>
+                <input type="number" min="0" value={input} placeholder="0" onChange={e => changeHandler(e)} className="time-input"/>
+                <button className="math-operator" onClick={() => setInput(parseInt(input) + 1)}>&#x2b;</button>
             </div>
-
-        </>
+            {toggleStart?
+                <p style={{color: "white"}} className="the-timer">{minutes}:{seconds >= 10?seconds: <span>0{seconds}</span>}</p>:
+                <h3 style={{color: "red"}}>You must put an input greater than 0!</h3>
+            }
+            <section className="btn-container">
+                {!toggleStart?
+                    <button className="timer-button timer-button-start" disabled={input > 0? false: true}onClick={startTimer}>Start</button>:
+                    <button className="timer-button timer-button-start" disabled={toggleResume} onClick={resumeTimer}>Resume</button>
+                }
+                <button className="timer-button timer-button-stop" disabled={!toggleStart}onClick={stopTimer}>Stop</button>
+                <button className="timer-button timer-button-reset" disabled={!toggleStart} onClick={resetTimer}>Reset</button>
+            </section>
+        </div>
     )
 }
-
 
 export default Timer;
