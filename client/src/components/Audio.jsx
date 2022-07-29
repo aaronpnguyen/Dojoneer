@@ -21,6 +21,11 @@ class Audio extends Component {
         console.log(e.target.value / 100)
         this.setState({volume: e.target.value / 100, volumeBar: e.target.value})
     }
+
+    handleAdd = (e) => {
+        console.log(e.target.value / 100)
+        this.setState({volume: e.target.value / 100, volumeBar: e.target.value})
+    }
     handleOnProgress = (e) => {
         this.setState({currentSeek: e.playedSeconds})
     }
@@ -39,6 +44,8 @@ class Audio extends Component {
     handlePause = () => {
         this.setState({isPlay: false})
     }
+
+
 
     render() {
         const {muted, volume, currentSeek, isPlay, totalDurationOfVideo, volumeBar} = this.state
@@ -62,6 +69,8 @@ class Audio extends Component {
                         handleSeekChange={this.handleSeekChange}
                         totalDurationOfVideo={totalDurationOfVideo}
                         handleVolumeChange={this.handleVolumeChange}
+                        handleAdd={this.handleAdd}
+                        value={this.volume}
                     ></VideoPlayer>
                 </div>
             </>

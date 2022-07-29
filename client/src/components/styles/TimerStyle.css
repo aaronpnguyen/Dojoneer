@@ -1,0 +1,136 @@
+:root {
+  --paper-yelow: rgb(252, 252, 212);
+  --charc: rgb(33, 38, 45);
+  --charc-two: rgba(33, 38, 45, 0.8);
+  --light-green: #adebad;
+  --green: #32cd32;
+  --light-red: #ffb3b3;
+  --red: #ff4d4d;
+}
+
+.timer {
+	background-color: var(--charc-two);
+	display: inline-flex;
+	flex-direction: column;
+	color: white;
+	padding: 1.5% 2%;
+	width: 26%;
+	border-radius: 5px;
+	min-width: 300px;
+
+	position: absolute;
+	top: 40px;
+	left: 58%;
+
+	user-select: none;
+	cursor: grab;
+	box-sizing: border-box;
+}
+
+.btn-container {
+	min-width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 5%;
+}
+
+.btn-container > button  {
+	padding: 2% 4%;
+	border: none;
+	/* box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.3); */
+	border-radius: 2px;
+	background-color: rgba(255, 255, 255);
+}
+
+.btn-container > button:hover {
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* .btn-container > .start-time:hover {
+	cursor: pointer;
+	background-color: var(--light-green);
+}
+
+.btn-container > .stop-time:hover {
+	cursor: pointer;
+	background-color: var(--light-green);
+} */
+
+.btn-container > button:active {
+	position: relative;
+	top: 2px;
+	box-shadow: none;
+}
+
+.input-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 45%;
+	align-self: center;
+}
+
+.time-input  {
+	padding: 3% 6%;
+	margin-bottom: 10%;
+	border-radius: 3px;
+	border: none;
+	width: 10%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+/* Timer Input Field */
+.the-timer {
+	margin-bottom: 5%;
+	min-width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+	.time-input::-webkit-outer-spin-button,
+	.time-input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+	input[type=number] {
+	-moz-appearance: textfield;
+}
+
+/* Plus/Minus Buttons */
+
+.math-operator {
+	background-color: transparent;
+	border: 1px solid transparent;
+	color: white;
+	border-radius: 180px;
+	padding: 0 5px;
+	height: 20px;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.math-operator:hover {
+	border: 1px solid;
+	cursor: pointer;
+}
+
+.timer-button {
+	box-shadow: 0 3px 0 0 rgba(255,255,255, 0.4);
+}
+
+.timer-button:hover {
+	/* position: relative;
+	top: 3px; */
+	box-shadow: 0 3px 0 0 rgba(255,255,255, 0.3);
+}
+
+.timer-button-start:active {
+	position: relative !important;
+	top: 3px !important;
+	box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+}
+
+

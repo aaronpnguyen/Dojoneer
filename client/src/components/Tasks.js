@@ -49,7 +49,7 @@ const Tasks = () => {
         <div className="taskForm">
             <form onSubmit={onSubmit} className="form">
                 <div className="taskInputContainer">
-                    <input type="text" onChange={change} value={tasks} placeholder="Add Task" className="taskInput"></input>
+                    <input type="text" onChange={change} value={tasks} placeholder="Add Task" className="taskInput" maxlength="100"></input>
                     <h6>{count}/100</h6>
                 </div>
 

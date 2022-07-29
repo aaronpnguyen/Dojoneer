@@ -1,55 +1,119 @@
 import React, {useEffect, useState} from "react";
+// eslint-disable-next-line
+import TimerStyle from './styles/TimerStyle.css'
 
 function Timer() {
-    const calculateTimeLeft = () => {
-        let year = new Date().getFullYear();
-    
-        const difference = +new Date(`01/01/${year+1}`) - +new Date();
-        
-        let timeLeft = {};
-    
-        if (difference > 0) {
-            timeLeft = {
-            hours: Math.floor((difference / (1000 * 60 * 60)) % 24), 
-            minutes: Math.floor((difference / 1000 / 60) % 60),
-            seconds: Math.floor((difference / 1000) % 60)
-        };
-    }
-    
-        return timeLeft
-    };
-        
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-    const [year] = useState(new Date().getFullYear());
-    
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setTimeLeft(calculateTimeLeft());
-            }, 1000);
-            return () => clearTimeout(timer);
-    });
-        const timerComponents = [];
-    
-    Object.keys(timeLeft).forEach((interval) => {
-        if (!timeLeft[interval]) {
-        return;
-    }
-    
-        timerComponents.push(
-            <span>
-                {timeLeft[interval]} {interval}{" "}
-            </span>
-        );
-    });
+    let [input, setInput] = useState(0)
+    let [minutes, setMinutes] = useState(input)
+    let [seconds, setSeconds] = useState(0)
+    let [count, setCount] = useState(0)
+    let [toggleStart, setToggleStart] = useState(false)
+    let [toggleResume, setToggleResume] = useState(true)
+    let alarm = require('../assets/alarm.mp3');
 
-    return (
-        <div className="nieuwjaar">
-            <h1>Own Date</h1>
-            <input type="date" ></input>
-            <br></br>
-            {timerComponents.length ? timerComponents : <span>Time's Up!</span>}
+    useEffect(() => {
+        if (minutes === 0 && seconds === 0 && toggleStart) {
+            new Audio(alarm).play();
+            resetTimer()
+        }
+    })
+
+    useEffect(() => {
+        addTime()
+        subtractTime()
+        setInput(minutes)
+        if (isNaN(minutes)) {
+            setMinutes(0)
+            setInput(0)
+        }
+    }, [minutes])
+
+    const addTime = () => {
+        setMinutes(input => parseInt(input) + 1)
+    }
+
+    const subtractTime = () => {
+        setMinutes(input => parseInt(input) - 1)
+    }
+
+    const changeHandler = e => {
+        setInput(e.target.value)
+        setMinutes(e.target.value)
+    }
+
+    const startTimer = () => {
+        setInput(0)
+        const countdown = setInterval(() => {
+            seconds--
+            if (seconds === -1) {
+                seconds = 0
+            }
+            setMinutes(minutes)
+            setSeconds(seconds)
+            if (seconds === 0) {
+                minutes--
+                seconds = 60
+            }
+        }, 1000)
+        setCount(countdown)
+        setToggleStart(true)
+    }
+
+    const resumeTimer = (e) => {
+        const countdown = setInterval(() => {
+            seconds--
+            if (seconds === -1) {
+                seconds = 0
+            }
+            setMinutes(minutes)
+            setSeconds(seconds)
+            if (seconds === 0) {
+                minutes--
+                seconds = 60
+            }
+        }, 1000)
+        setCount(countdown)
+        setToggleResume(true)
+    }
+
+    const stopTimer = () => {
+        setToggleResume(false)
+        if (count) {
+            clearInterval(count)
+            setCount(false)
+            return
+        }
+    }
+
+    const resetTimer = () => {
+        stopTimer()
+        setMinutes(1)
+        setSeconds(0)
+        setToggleResume(true)
+        setToggleStart(false)
+    }
+
+    return(
+        <div className="timer">
+            <div className="input-container">
+                <button className="math-operator" disabled={input <= 0? true : false} onClick={subtractTime}>&#x2212;</button>
+                {!toggleStart?
+                    <input type="number" min="1" value={input} placeholder="0" onChange={e => changeHandler(e)} className="time-input"/>:
+                    <input disabled type="number" className="time-input"/>
+                }
+                <button className="math-operator" onClick={addTime}>&#x2b;</button>
+            </div>
+            <p style={{color: "white"}} className="the-timer">{minutes}:{seconds >= 10?seconds:<span>0{seconds}</span>}</p>
+            <section className="btn-container">
+                {!toggleStart?
+                    <button className="timer-button timer-button-start" disabled={input > 0? false: true}onClick={e => startTimer(e)}>Start</button>:
+                    <button className="timer-button timer-button-start" disabled={toggleResume} onClick={resumeTimer}>Resume</button>
+                }
+                <button className="timer-button timer-button-stop" disabled={!toggleStart}onClick={stopTimer}>Stop</button>
+                <button className="timer-button timer-button-reset" disabled={!toggleStart} onClick={resetTimer}>Reset</button>
+            </section>
         </div>
-    );
+    )
 }
 
 export default Timer;
