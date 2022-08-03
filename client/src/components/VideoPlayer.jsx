@@ -67,10 +67,10 @@ function VideoPlayer(props){
             </Draggable>
 
 
-
+{/* 
             <div>
                 <button className='open-btn-music' onClick={() => setShow(!show)}> Music </button>
-            </div>
+            </div> */}
 
 
         </>
