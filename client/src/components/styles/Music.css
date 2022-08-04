@@ -49,17 +49,18 @@
 	padding: 0 2%;
 }*/
 
-#musicSlider {
+/* #musicSlider {
 	margin: 0;
 	padding: 0;
 	-webkit-appearance:  none;
 	appearance: none;
 	outline: none;
-	background-color: rgba(225, 225, 225, 0.3);
+	background-color: rgba(49, 100, 255, 0.8);
 	transition: opacity .3s;
-	height: 12px;
+	height: 8px;
 	border-radius: 10px;
 }
+*/
 
 #musicSlider:hover {
 	opacity: 1;
@@ -67,7 +68,7 @@
 }
 
 #musicSlider:active {
-	background-color: rgba(225, 225, 225, 0.8);
+	background-color: rgb(0, 64, 255);
 }
 
 .vrange::-webkit-slider-thumb {

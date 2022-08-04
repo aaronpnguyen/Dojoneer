@@ -79,6 +79,10 @@ body {
   cursor: grab;
 }
 
+.paper-content> * {
+  outline: none;
+}
+
 
 textarea {
   background: url('../public/notebook.png') repeat-y;

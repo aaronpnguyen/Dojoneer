@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import App from './styles/Music.css'
+import App from './styles/Music.css';
+import Draggable from 'react-draggable';
 
 function VideoPlayer(props){
     let playbutton = require('../assets/whiteplay.png');
@@ -22,8 +23,13 @@ function VideoPlayer(props){
         
     }
 
+    const onMouseDown = (e) => {
+        e.stopPropagation();
+    };
+
     return(
         <>
+        <Draggable>
             {
                 show &&
                 <div className="musicContainer">
@@ -34,12 +40,13 @@ function VideoPlayer(props){
                                 {!props.playing && <p onClick={props.handlePlay} ><img src={playbutton} id="play_audio" width='30px' height='30px' className='music-img' /></p>}
                             </div>
                             <div className='slider-container'>
-                                <div >
+                                <div>
                                     {props.volume > 50 && <i className='fa fa-volume-up text-white '/> }
                                     {props.volume == 0 && <i className='fa fa-volume-mute text-white' />}
                                     {props.volume <= 50 && props.volume > 0 && <i className='fa fa-volume-down text-white' />}
                                 </div>
-                                <input  
+                                <input
+                                    onMouseDown={onMouseDown}
                                     className='volume-range vrange'
                                     id="musicSlider"
                                     // style={{width: "100%", margin: "0 3px"}}
@@ -57,13 +64,13 @@ function VideoPlayer(props){
                         </div> */}
                 </div>
             }
+            </Draggable>
 
 
-
-
+{/* 
             <div>
                 <button className='open-btn-music' onClick={() => setShow(!show)}> Music </button>
-            </div>
+            </div> */}
 
 
         </>
