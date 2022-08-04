@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.359cc0e6.css",
+    "main.js": "/static/js/main.c0dc54fd.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/dojo.jpg": "/static/media/dojo.a47d7fe01ff7b296d72f.jpg",
+    "static/media/alarm.mp3": "/static/media/alarm.9fdf1177fc0d87a214c3.mp3",
+    "static/media/whitepause.png": "/static/media/whitepause.274c9aa3c2900426e89b.png",
+    "index.html": "/index.html",
+    "main.359cc0e6.css.map": "/static/css/main.359cc0e6.css.map",
+    "main.c0dc54fd.js.map": "/static/js/main.c0dc54fd.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.359cc0e6.css",
+    "static/js/main.c0dc54fd.js"
+  ]
+}
